@@ -14,6 +14,8 @@
     "type": "git",
     "url": "https://github.com/scottszarapka/yield.git"
   },
+  "bugs"        : "https://github.com/scottszarapka/yield/issues",
+  "contributors": "https://github.com/scottszarapka/yield/graphs/contributors",
   "licenses"    : [
     {
       "type": "GPL V2",
