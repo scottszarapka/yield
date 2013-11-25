@@ -1,22 +1,40 @@
 {
-  "name": "yield",
-  "version": "0.0.1",
-  "private": false,
-  "repository": {
+  "name"        : "yield",
+  "version"     : "0.0.1",
+  "description" : "Image uploading platform.",
+  "author"      : "Scott Szarapka",
+  "homepage"    : "https://github.com/scottszarapka/yield",
+  "keywords"    : [
+      "yield",
+      "image uploader",
+      "images"
+  ],
+  "private"     : true,
+  "repository"  : {
     "type": "git",
     "url": "https://github.com/scottszarapka/yield.git"
   },
-  "scripts": {
+  "licenses"    : [
+    {
+      "type": "GPL V2",
+      "url": "https://raw.github.com/scottszarapka/yield/master/LICENSE"
+    }
+  ],
+  "scripts"     : {
     "start": "nodemon yield.js",
     "test": "mocha -R landing"
   },
+  "engines": {
+      "node": "0.10.*"
+  },
+  "engineStrict": true,
   "dependencies": {
     "express": "3.4.4",
-    "jade": "*",
-    "when": "2.6.0",
     "hashids": "0.3.3",
+    "jade": "*",
     "mongoose": "3.8.1",
-    "mongoose-auto-increment": "2.1.1"
+    "mongoose-auto-increment": "2.1.1",
+    "when": "2.6.0"
   },
   "devDependencies": {
     "mocha": "*",
