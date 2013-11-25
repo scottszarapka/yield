@@ -1,12 +1,25 @@
 {
-  "name": "application-name",
+  "name": "yield",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottszarapka/yield.git"
+  },
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon yield.js",
+    "test": "mocha -R landing"
   },
   "dependencies": {
     "express": "3.4.4",
-    "jade": "*"
+    "jade": "*",
+    "when": "2.6.0",
+    "hashids": "0.3.3",
+    "mongoose": "3.8.1",
+    "mongoose-auto-increment": "2.1.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "supertest": "*"
   }
 }
