@@ -10,6 +10,11 @@
  *
  */
 
-
+var loader = require('./yield/config/loader');
+var errors = require('./yield/errors/handler');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+loader().then(function () {
+  console.log('Config is Good');
+}).otherwise(errors.logAndThrowError);

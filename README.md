@@ -1,7 +1,7 @@
-Yield
-=====
+Yield.js
+========
 
-Yield is a Image Uploading platform powered Node.js and Express.js.
+Yield is a Image Uploading platform powered [Node.js](www.nodejs.org) and [Express.js](www.expressjs.com).
 
 ## Getting Started
 
