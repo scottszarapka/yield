@@ -9,7 +9,7 @@ Yield is a Image Uploading platform powered [Node.js](www.nodejs.org) and [Expre
 
 ## Copyright & Licensing
 
-Copyright (C) 2013 Scott Szarapka - Released under the GPL License.
+Copyright (C) 2014 Scott Szarapka - Released under the GPL License.
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 

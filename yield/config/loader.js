@@ -2,11 +2,10 @@
  *  Yield
  *  Configuration Loader
  *
- *  @copyright  Copyright (C) 2013 Scott Szarapka
+ *  @copyright  Copyright (C) 2014 Scott Szarapka
  *  @author  Scott Szarapka [scott@szarapka.com] (www.szarapka.com)
  *  @license GPL v2 (http://www.gnu.org/licenses/gpl-2.0.txt)
  *  @package  yield
- *  @version  0.0.1
  *
  */
 
@@ -35,7 +34,9 @@ function validateConfig() {
     return when.reject();
   }
 
-  return when.resolve();
+  // TODO: Add Actual Validation Checks for the Config File.
+
+  return when.resolve(config);
 }
 
 function loadConfig() {
@@ -44,7 +45,7 @@ function loadConfig() {
     if (configExists) {
       validateConfig().then(loaded.resolve).otherwise(loaded.reject);
     } else {
-      errors.logError(new Error('No configuration file found.'), 'config.js', 'Use config.example.js to create a config.js file in the root directory.');
+      errors.logError(new Error('No configuration file found.'), 'config.js', 'Create a config.js in the root directory.');
       return when.reject();
     }
   });
