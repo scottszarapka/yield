@@ -23,7 +23,7 @@
     }
   ],
   "scripts"     : {
-    "start": "nodemon yield.js",
+    "start": "nodemon index.js",
     "test": "mocha -R landing"
   },
   "engines": {
@@ -35,9 +35,13 @@
     "express": "3.4.4",
     "hashids": "0.3.3",
     "jade": "*",
+    "less-middleware": "0.1.14",
     "mongoose": "3.8.1",
     "mongoose-auto-increment": "2.1.1",
+    "passport": "0.1.17",
+    "passport-local": "0.1.6",
     "underscore": "1.5.2",
+    "validator": "2.0.0",
     "when": "2.6.0"
   },
   "devDependencies": {
