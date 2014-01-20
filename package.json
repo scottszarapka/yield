@@ -31,10 +31,12 @@
   },
   "engineStrict": true,
   "dependencies": {
+    "busboy": "0.0.14",
     "colors": "0.6.2",
     "express": "3.4.4",
     "hashids": "0.3.3",
     "jade": "*",
+    "knox": "0.8.8",
     "less-middleware": "0.1.14",
     "mongoose": "3.8.1",
     "mongoose-auto-increment": "2.1.1",
