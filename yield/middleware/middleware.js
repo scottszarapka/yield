@@ -8,6 +8,7 @@ var knox          = require('knox');
 var os            = require('os');
 var crypto        = require('crypto');
 var errors        = require('../errors/handler');
+var fs            = require('fs');
 
 var expressServer;
 
@@ -40,6 +41,7 @@ var middleware = {
     busboy.on('file', function (fieldname, file, filename, encoding, mimetype) {
       var filePath,
           tmpFileName,
+          fileId,
           md5 = crypto.createHash('md5');
 
       if (!filename) hasError = true;
@@ -49,13 +51,15 @@ var middleware = {
 
       tmpFileName = (new Date()).getTime() + md5.digest('hex');
       filePath = path.join(tmpDir, tmpFileName || 'temp.tmp');
+      fileId = (+new Date()).toString(36);
 
       file.on('end', function () {
         req.files[fieldname] = {
           type: mimetype,
           encoding: encoding,
           name: filename,
-          path: filepath
+          path: filePath,
+          id: fileId
         };
       });
 
@@ -64,7 +68,7 @@ var middleware = {
         res.send(413, {error: 413, message: 'File size is too big for the file hole.'});
       });
 
-      busyboy.on('error', function (err) {
+      busboy.on('error', function (err) {
         errors.logError(err, 'BusBoy');
       });
 
