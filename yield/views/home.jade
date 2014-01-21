@@ -1,3 +1,12 @@
 extends layout
 
 block content
+  .container
+    h1 Yield
+    p Upload your image.
+    form(method='post', action='/upload', enctype='multipart/form-data')
+      fieldset
+        legend Upload
+        label(for='image') Image
+        input.form-control(type='file', name='image')
+        button.btn.btn-default(type='submit') Upload
