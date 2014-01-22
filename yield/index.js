@@ -8,6 +8,7 @@ var path          = require('path');
 var routes        = require('./routes');
 var middleware    = require('./middleware');
 var db            = require('./db');
+var Reaper        = require('tmp-reaper');
 
 // variables
 var setup;
@@ -38,8 +39,7 @@ function setup(server) {
 
       // We can't trust server admins to setup proper temp cleansing
       // on their own, so we create our own tmp folder and use
-      // tmp-reaper to clean it out on our own. tmp-reaper is configured
-      // in our storage module.
+      // tmp-reaper to clean it out on our own.
       fs.exists(tmpDir, function(exists) {
         if(!exists) {
           fs.mkdir(tmpDir, 0775, function (err) {
@@ -49,6 +49,13 @@ function setup(server) {
           });
         }
       });
+
+      // Start tmp-reaper
+      var reaper = new Reaper({
+        threshold: '1 hour',
+        every: '10 min'
+      });
+      reaper.watch(tmpDir).start();
 
       if (process.env.NODE_ENV === 'production') {
         console.log(

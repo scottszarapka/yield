@@ -42,6 +42,7 @@
     "mongoose-auto-increment": "2.1.1",
     "passport": "0.1.17",
     "passport-local": "0.1.6",
+    "tmp-reaper": "0.0.2",
     "underscore": "1.5.2",
     "validator": "2.0.0",
     "when": "2.6.0"
