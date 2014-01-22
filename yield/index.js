@@ -65,26 +65,26 @@ function setup(server) {
 
         process.on('SIGINT', function () {
           console.log(
-            "\nYield has shut down".red
+            '\nYield has shut down'.red
           );
           process.exit(0);
         });
       } else {
         console.log(
-          ("\nYield is running in " + process.env.NODE_ENV + "...").green.bold,
-          "\nListening on",
+          ('\nYield is running in ' + process.env.NODE_ENV + '...').green.bold,
+          '\nListening on',
           config().server.host + ':' + config().server.port,
-          "\nUrl configured as:",
+          '\nUrl configured as:',
           config().url,
-          "\nCtrl+C to shut down".grey
+          '\nCtrl+C to shut down'.grey
         );
 
         process.on('SIGINT', function () {
           console.log(
-            "\nYield has shutdown".red,
-            "\nYield was running for",
+            '\nYield has shutdown'.red,
+            '\nYield was running for',
             Math.round(process.uptime()),
-            "seconds"
+            'seconds'
           );
           process.exit(0);
         });
