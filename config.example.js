@@ -9,12 +9,42 @@
  *
  */
 
-
 var path = require('path');
 var config;
 
-conifg = {
-
+config = {
+  development: {
+    url: 'http://yoururl.com',
+    adminsuffix: 'admin',
+    server: {
+      host: '127.0.0.1',
+      port: '3000'
+    },
+    database: {
+      host: 'mongodb://localhost/yield'
+    },
+    s3: {
+      key: 'yourkey',
+      secret: 'yoursecret',
+      bucket: 'yourbucket'
+    }
+  },
+  production: {
+    url: 'http://yoururl.com',
+    adminsuffix: 'admin',
+    server: {
+      host: '127.0.0.1',
+      port: '3000'
+    },
+    database: {
+      host: ''
+    },
+    s3: {
+      key: '',
+      secret: '',
+      bucket: ''
+    }
+  }
 };
 
 module.exports = config;
