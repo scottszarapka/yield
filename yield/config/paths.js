@@ -8,6 +8,7 @@ var contentPath = path.resolve(appRoot, 'public/');
 var publicViews = path.resolve(corePath, 'views/');
 var adminViews = path.resolve(corePath, 'views/admin/');
 var localPath = '';
+var tmpPath = path.resolve(appRoot, 'tmp/');
 
 function paths() {
   return {
@@ -18,7 +19,8 @@ function paths() {
     'contentPath': contentPath,
     'corePath': corePath,
     'publicViews': publicViews,
-    'adminViews': adminViews
+    'adminViews': adminViews,
+    'tmp': tmpPath
   };
 }
 

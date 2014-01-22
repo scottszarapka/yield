@@ -34,6 +34,22 @@ function setup(server) {
     routes.admin(server);
 
     function startYield() {
+      var tmpDir = config.paths().tmp;
+
+      // We can't trust server admins to setup proper temp cleansing
+      // on their own, so we create our own tmp folder and use
+      // tmp-reaper to clean it out on our own. tmp-reaper is configured
+      // in our storage module.
+      fs.exists(tmpDir, function(exists) {
+        if(!exists) {
+          fs.mkdir(tmpDir, 0775, function (err) {
+            if(err) {
+              return errors.logErrorAndExit(er);
+            }
+          });
+        }
+      });
+
       if (process.env.NODE_ENV === 'production') {
         console.log(
           '\nYield is Running...'.green.bold,

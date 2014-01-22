@@ -4,8 +4,6 @@ var express       = require('express');
 var passport      = require('passport');
 var config        = require('../config');
 var path          = require('path');
-var knox          = require('knox');
-var os            = require('os');
 var crypto        = require('crypto');
 var errors        = require('../errors/handler');
 var fs            = require('fs');
@@ -31,9 +29,7 @@ var middleware = {
 
     busboy = new BusBoy({ headers: req.headers });
 
-    // TODO: Need to better understand the default clean up protocols
-    // for OS tmp dirs to ensure we don't fill up hosts in minutes.
-    tmpDir = os.tmpdir();
+    tmpDir = config.paths().tmp;
 
     req.files = req.files || {};
     req.body = req.body || {};
