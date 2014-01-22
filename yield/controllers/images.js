@@ -5,6 +5,7 @@ var when        = require('when');
 var url         = require('url');
 var fs          = require('fs');
 var path        = require('path');
+var s3          = require('../storage/s3.js');
 
 var imageControllers;
 
@@ -17,7 +18,11 @@ imageControllers = {
       return res.send(415, 'Unsupported media type.');
     }
 
-    res.json(200, req.files.image);
+    s3.put(req.files.image).then(function(response){
+      var url = 'https://s3.amazonaws.com/' + config().s3.bucket + '/' + req.files.image.storageName;
+      res.json(200, {message: 'success', status: response, url: url });
+    }).otherwise(errors.logAndThrowError);
+
   }
 };
 

@@ -39,6 +39,7 @@ var middleware = {
           tmpFileName,
           fileId,
           ext,
+          size = 0;
           md5 = crypto.createHash('md5');
 
       if (!filename) hasError = true;
@@ -51,6 +52,10 @@ var middleware = {
       fileId = (+new Date()).toString(36);
       ext = path.extname(filename).toLowerCase();
 
+      file.on('data', function (data) {
+        size = size + data.length;
+      });
+
       file.on('end', function () {
         req.files[fieldname] = {
           type: mimetype,
@@ -59,6 +64,7 @@ var middleware = {
           path: filePath,
           id: fileId,
           ext: ext,
+          size: size,
           storageName: (fileId + ext).toLowerCase()
         };
       });

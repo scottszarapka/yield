@@ -44,7 +44,7 @@ function setup(server) {
         if(!exists) {
           fs.mkdir(tmpDir, 0775, function (err) {
             if(err) {
-              return errors.logErrorAndExit(er);
+              return errors.logErrorAndExit(err);
             }
           });
         }
